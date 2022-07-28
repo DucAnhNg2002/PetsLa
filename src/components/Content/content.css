@@ -18,3 +18,33 @@
     box-sizing: content-box;
     height: 10em;
 }
+
+.item__content {
+    padding: 16px;
+}
+
+.item__desc a {
+    text-decoration: none;
+    color: black;
+}
+.item__desc-price {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.item__buy-cart-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item__buy {
+    color: rgb(254, 254, 254);
+    background-color: #464646;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+.item__cart {
+    flex-grow: 1;
+}

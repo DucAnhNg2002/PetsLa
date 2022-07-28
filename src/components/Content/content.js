@@ -35,12 +35,12 @@ const arrayItem = [
     {
         img: "https://petsla-api.herokuapp.com/media/photos/products/p5.webp",
         text: "Combo gối cổ và bịt mắt LuckyCat",
-        text: "240.000",
+        price: "240.000",
     },
     {
         img: "https://petsla-api.herokuapp.com/media/photos/products/p9.jpg",
         text: "Máy phun sương du thuyền Captain...",
-        text: "240.000"
+        price: "240.000"
     }
 ];
 
@@ -64,8 +64,28 @@ function ListItem() {
                 arrayItem.map((value,index) => {
                     return (
                         <div className="item col c-6 m-4 l-3" key={index} >
-                            <div className="item__image" style={{backgroundImage:`url(${value.img})`}}>
-
+                            <div className="item__image" style={{backgroundImage:`url(${value.img})`}}/>
+                            <div className="item__content">
+                                <div className="item__desc">
+                                    <a href="">
+                                        <span className="item__desc-title">
+                                            {value.text}
+                                        </span>
+                                    </a>
+                                    <div className="item__desc-price">
+                                        {value.price}
+                                    </div>
+                                </div>
+                                <div className="item__buy-cart-wrap">
+                                    <div className="item__buy">
+                                        <i class="fa-solid fa-bag-shopping"></i>
+                                        <span>Buy now</span>
+                                    </div>
+                                    <div className="item__cart">
+                                        <i class="fa-solid fa-cart-circle-plus"></i>
+                                        <span>Add to Cart</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     )
