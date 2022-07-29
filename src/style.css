@@ -4,3 +4,7 @@
     box-sizing: border-box;
     font-family: "Nunito, sans-serif";
 }
+
+.root {
+    background-color: rbg(90, 191, 141);
+}

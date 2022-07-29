@@ -4,7 +4,7 @@ import "./content.css"
 const arrayItem = [
     {
         img: "https://petsla-api.herokuapp.com/media/photos/products/p8.jpg",
-        text: "Đèn cảm ứng silicon chim cánh cụt",
+        text: "Đèn cảm ứng silicon chim cánh cụt...",
         price: "360.000"
     },
     {
@@ -41,21 +41,28 @@ const arrayItem = [
         img: "https://petsla-api.herokuapp.com/media/photos/products/p9.jpg",
         text: "Máy phun sương du thuyền Captain...",
         price: "240.000"
+    },
+    {
+        img: "https://petsla-api.herokuapp.com/media/photos/products/p10.jpg",
+        text: "Máy phun sương Space Cat",
+        price: "320.000"
+    },
+    {
+        img: "https://petsla-api.herokuapp.com/media/photos/products/p12.jpg",
+        text: "Quạt điều hòa Fancy Cat",
+        price: "350.000"
+    },
+    {
+        img: "https://petsla-api.herokuapp.com/media/photos/products/p15.jpg",
+        text: "Những chiếc măng cụt ôm góc bàn",
+        price: "35.000"
+    },
+    {
+        img: "https://petsla-api.herokuapp.com/media/photos/products/p23.jpg",
+        text: "Mèo gốm Akita",
+        price: "350.000"
     }
 ];
-
-// function Item(key,className,...props) {
-//     return (
-//         <div className={className} key={key} style = {{backgroundImage:`url(${...props.img})`}}>
-
-//         </div>
-//     )
-//     item.style.backgroundImage = `url(${props.img})`
-//     item.style.backgroundRepeat = "no-repeat"
-//     item.style.backgroundPosition = "center center"
-//     item.style.backgroundSize = "cover"
-//     return item;
-// }
 
 function ListItem() {
     return (
@@ -64,7 +71,9 @@ function ListItem() {
                 arrayItem.map((value,index) => {
                     return (
                         <div className="item col c-6 m-4 l-3" key={index} >
-                            <div className="item__image" style={{backgroundImage:`url(${value.img})`}}/>
+                            <a className="item__product" href="">
+                                <div className="item__image" style={{backgroundImage:`url(${value.img})`}}/>
+                            </a>
                             <div className="item__content">
                                 <div className="item__desc">
                                     <a href="">
@@ -78,11 +87,11 @@ function ListItem() {
                                 </div>
                                 <div className="item__buy-cart-wrap">
                                     <div className="item__buy">
-                                        <i class="fa-solid fa-bag-shopping"></i>
+                                        <i className="item__buy-icon fa-solid fa-bag-shopping"></i>
                                         <span>Buy now</span>
                                     </div>
                                     <div className="item__cart">
-                                        <i class="fa-solid fa-cart-circle-plus"></i>
+                                        <i className="item__cart-icon fa-solid fa-cart-plus"></i>
                                         <span>Add to Cart</span>
                                     </div>
                                 </div>
