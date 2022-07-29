@@ -1,0 +1,27 @@
+
+/* Mobile */
+@media (max-width: 739px) {
+    .item__buy-icon, .item__cart span {
+        display: none;
+    }
+}
+
+/* Tablet - PC low resolution */
+@media (min-width: 740px) and (max-width: 1023px) {
+    .item__cart span {
+        display: none;
+    }
+}
+
+/* > PC low resolution */
+@media (min-width: 1024px) and (max-width: 1239px) {
+    .item__cart span {
+        display: none;
+    }
+}
+
+/* PC medium resolution > */
+@media (min-width: 1113px) {
+    /* ... */
+}
+

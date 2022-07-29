@@ -1,6 +1,8 @@
 import React from "react";
 
 import "./content.css"
+import "./responsive-content.css"
+
 const arrayItem = [
     {
         img: "https://petsla-api.herokuapp.com/media/photos/products/p8.jpg",
@@ -77,9 +79,9 @@ function ListItem() {
                             <div className="item__content">
                                 <div className="item__desc">
                                     <a href="">
-                                        <span className="item__desc-title">
+                                        <div className="item__desc-title">
                                             {value.text}
-                                        </span>
+                                        </div>
                                     </a>
                                     <div className="item__desc-price">
                                         {value.price}

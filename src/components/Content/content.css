@@ -4,10 +4,12 @@
     flex-wrap: wrap;
     border-radius: 5px;
 }
-
 .item {
     padding-top: .5rem;
     padding-bottom: .5rem;
+    transition: all .5s;
+} .item:hover {
+    transform: translateY(-.1em);
 }
 
 .item__image {
@@ -37,6 +39,12 @@
     color: black;
 } .item__desc a:hover {
     color: #e69646;
+}
+
+.item__desc .item__desc-title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .item__desc-price {
@@ -70,7 +78,7 @@
     background-color: #464646;
 
     display: flex;
-    flex-grow: 1;
+    width: 50%;
     justify-content: center;
     padding: .375em 0;
 
@@ -81,7 +89,7 @@
 
     background-color: #fefefe;
     display: flex;
-    flex-grow: 1;
+    width: 50%;
     justify-content: center;
     padding: .375em 0;
 
