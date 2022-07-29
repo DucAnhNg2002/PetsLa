@@ -85,3 +85,23 @@
 .header__cart__icon {
     font-size: 1.5em;
 }
+
+.header__nav-list {
+    display: flex;
+    list-style: none;
+    justify-content: end;
+    margin: -.875rem .65em 0;
+    padding-bottom: .375rem;
+    box-sizing: content-box;
+    text-align: center;
+}
+.header__nav-item {
+    margin: .625rem;
+    align-items: center;
+    font-size: 1.25em;
+}
+.header__nav-item-link {
+    text-decoration: none;
+    color: black;
+    transition: color .2s;
+}
