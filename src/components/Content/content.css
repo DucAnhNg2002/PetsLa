@@ -30,7 +30,7 @@
 .item__content {
     border-bottom-left-radius: .5em;
     border-bottom-right-radius: .5em;
-    background-color: rbg(245, 247, 246);
+    background-color: rgb(255, 255, 255);
     padding: 1rem;
 }
 

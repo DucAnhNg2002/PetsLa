@@ -1,3 +1,48 @@
+.header {
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+
+    border-bottom: 1px solid hsla(0,0%,66.7%,.3)
+}
+
+.header__higher {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1em;
+}
+.header__higher-info {
+    display: flex;
+    align-items: stretch;
+}
+.header__higher-info-mail, .header__higher-info-phone {
+    font-size: 1.1em;
+    align-self: center;
+    padding: .65em 0;
+}
+.header__higher-info-mail > span, 
+.header__higher-info-phone > span {
+    margin-left: .5em;
+}
+.header__higher-btn-wrap {
+    display: flex;
+}
+
+.divide {
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 0 1rem;
+    width: 1px;
+}
+
+.header__higher-btn-wrap div{
+    align-items: center;
+    margin: auto .625rem;
+    font-size: 1.3em;
+}
+
 .header__wrap {
     display: flex;
     align-items: center;
