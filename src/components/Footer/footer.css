@@ -9,10 +9,10 @@
 .footer__banner-img {
     width: 100%;
     background-size: cover;
-    transition: transform  3s;
+    transition: transform 4s;
 }
 .footer__banner-img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .footer .footer__contain {
