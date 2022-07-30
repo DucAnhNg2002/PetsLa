@@ -5,7 +5,23 @@ import { Link } from "react-router-dom"
 import "./header.css"
 import "../../grid.css"
 
-export default function Header() {
+function Header() {
+    const [color,setColor] = useState(["rgb(230, 150, 70)","black","black","black","black"]);
+    function handleChangePage(event) {
+        const resetColor = ["black","black","black","black","black"];
+        let id;
+        if(!event.target.getAttribute("id")) {
+            id = event.target.parentElement.getAttribute("id")%5;
+        }
+        else id = event.target.getAttribute("id");
+        resetColor[id] = "rgb(230, 150, 70)";
+        setColor(resetColor);
+    }
+    function addNavMobile() {
+        const headerNavMobi = document.querySelector('.header__nav-mobile');
+        headerNavMobi.style.position = "fixed";
+
+    }
     return (
         <React.Fragment>
             <div style={{borderBottom: "2px solid hsla(0,0%,66.7%,.3)",width: "100%"}}>
@@ -63,32 +79,61 @@ export default function Header() {
             <div className ="header__nav grid wide">
                 <ul className="header__nav-list">
                     <li className="header__nav-item">
-                        <Link to="/" className="header__nav-item-link">
+                        <Link to="/" className="header__nav-item-link" onClick={handleChangePage} id={0} style={{color:color[0]}}>
                             Home
                         </Link>
                     </li>
                     <li className="header__nav-item">
-                        <Link to="/shop" className="header__nav-item-link">
+                        <Link to="/shop" className="header__nav-item-link" onClick={handleChangePage} id={1} style={{color:color[1]}}>
                             Shop
                         </Link>
                     </li>
                     <li className="header__nav-item">
-                        <Link to="/cart" className="header__nav-item-link">
+                        <Link to="/cart" className="header__nav-item-link" onClick={handleChangePage} id={2} style={{color:color[2]}}>
                             Cart
                         </Link>
                     </li>
                     <li className="header__nav-item">
-                        <Link to="/contact" className="header__nav-item-link">
+                        <Link to="/contact" className="header__nav-item-link" onClick={handleChangePage} id={3} style={{color:color[3]}}>
                             Contact
                         </Link>
                     </li>
                     <li className="header__nav-item"> 
-                        <Link to="/account" className="header__nav-item-link">
+                        <Link to="/account" className="header__nav-item-link" onClick={handleChangePage} id={4} style={{color:color[4]}}>
                             Account
                         </Link>
                     </li>
                 </ul>
             </div>
+            <div className="header__nav-mobile" style={{display:"none"}}>
+                <ul className="header__nav-list-mobile">
+                        <li className="header__nav-item-mobile col mb-3">
+                            <Link to="/" className="header__nav-item-mobile-link" onClick={handleChangePage} id={5} style={{color:color[0]}}>
+                                <i className="fa-solid fa-house"></i>
+                                <div>Home</div>
+                            </Link>
+                        </li>
+                        <li className="header__nav-item-mobile col mb-3">
+                            <Link to="/shop" className="header__nav-item-mobile-link" onClick={handleChangePage} id={6} style={{color:color[1]}}>
+                                <i className="fa-solid fa-shop"></i>
+                                <div>Shop</div>
+                            </Link>
+                        </li>
+                        <li className="header__nav-item-mobile col mb-3">
+                            <Link to="/cart" className="header__nav-item-mobile-link" onClick={handleChangePage} id={7} style={{color:color[2]}}>
+                                <i className="fa-solid fa-cart-shopping"></i>
+                                <div>Cart</div>
+                            </Link>
+                        </li>
+                        <li className="header__nav-item-mobile col mb-3">
+                            <Link to="/contact" className="header__nav-item-mobile-link" onClick={handleChangePage} id={8} style={{color:color[3]}}>
+                                <i className="fa-solid fa-arrow-right-to-bracket"></i>
+                                <div>Contact</div>
+                            </Link>
+                        </li>
+                    </ul>
+            </div>
         </React.Fragment>
     )
 }
+export default Header;
