@@ -108,7 +108,7 @@ function ListItem() {
 
 export default function Content() {
     return (
-        <div className="content grid wide" style={{marginTop: '8em'}}>
+        <div className="content grid wide">
             <div className="content__list-items">
                 <ListItem></ListItem>
             </div>

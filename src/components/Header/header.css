@@ -18,6 +18,12 @@
 .header__higher-info-phone > span {
     margin-left: .5em;
 }
+.header__higher-info-img {
+    display: none;
+}
+.header__higher-info-img img {
+    width: 7.5rem;
+}
 .header__higher-btn-wrap {
     display: flex;
 }
@@ -45,8 +51,6 @@
     z-index: 1;
     top: 0;
     background-color: rgb(255, 255, 255);
-
-    border-bottom: 1px solid hsla(0,0%,66.7%,.3)
 }
 .header__wrap {
     display: flex;
@@ -115,3 +119,49 @@
     transition: color .2s;
 }
 /* Header Nav */
+
+
+/* Resposive */
+
+/* Mobile */
+@media (max-width: 739px) {
+    .header__higher-info-phone,
+    .header__higher-info-mail,
+    .divide,
+    .header__logo,
+    .header__nav,
+    .header__cart
+    {
+        display: none !important;
+    }
+
+    .header__higher-info-img {
+        display: block !important;
+    }
+
+    .header__wrap,
+    .header__search,
+    .header__search__input {
+        width: 100%;
+    }
+}
+
+/* Tablet - PC low resolution */
+@media (min-width: 740px) and (max-width: 1023px) {
+    .header__search__input  {
+        width: 22.5em;
+    }
+}
+
+/* > PC low resolution */
+@media (min-width: 1024px) and (max-width: 1239px) {
+    .header__search__input  {
+        width: 35em;
+    }
+}
+
+/* PC medium resolution > */
+@media (min-width: 1113px) {
+    /* ... */
+}
+

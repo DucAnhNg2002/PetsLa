@@ -138,7 +138,12 @@
 .c-o-11 {
     margin-left: 91.66667%;
 }
-
+/* Mobile */
+@media (max-width: 739px) {
+    .wide {
+        max-width: 516px;
+    }
+}
 /* >= Tablet */
 @media (min-width: 740px) {
     .row {
