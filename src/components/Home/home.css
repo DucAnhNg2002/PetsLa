@@ -1,4 +1,7 @@
-.carousel-inner img{
+.home {
+    margin-bottom: -3px;
+}
+
+.home img{
     width: 100%;
-    background-size: cover;
 }

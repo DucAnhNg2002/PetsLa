@@ -4,7 +4,6 @@
 
 .footer__banner {
     overflow: hidden;
-    height: 32.75rem;
 }
 .footer__banner-img {
     width: 100%;
@@ -22,6 +21,7 @@
 }
 .footer__contain-wrap {
     display: flex;
+    flex-wrap: wrap;
 }
 .footer__contain-wrap > div {
     padding-top: 1.5rem;

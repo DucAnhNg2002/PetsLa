@@ -8,7 +8,7 @@ export default function Footer() {
             </div>
             <div className="footer__contain grid wide">
                 <div className="footer__contain-wrap">
-                    <div className="col l-4">
+                    <div className="col l-4 c-4 mb-12">
                         <div className="about-us">
                             <h3>Về PetLa</h3>
                             <p>
@@ -16,8 +16,8 @@ export default function Footer() {
                             </p>
                         </div>
                     </div>
-                    <div className="col l-4 c-4"></div>
-                    <div className="col l-4 c-4">
+                    <div className="col l-4 c-4 mb-0"></div>
+                    <div className="col l-4 c-4 mb-12">
                         <div className="follow-us">
                             <h3>Follow Us</h3>
                             <div className="follow-us-wrap">
