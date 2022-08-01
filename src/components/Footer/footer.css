@@ -1,5 +1,6 @@
 .footer {
     width: 100%;
+    margin-bottom: 2em;
 }
 
 .footer__banner {
@@ -53,4 +54,28 @@
     color: #fff;
     box-shadow: inset 1.8rem 1.8rem 0 #e69646, inset -1.8rem -1.8rem 0 #e69646;
     cursor: pointer;
+}
+
+/* bottom__nav-mobile */
+@media (max-width: 739px) {
+    .bottom__nav-mobile {
+        display: block !important;
+        background-color: #fafafa;
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+        bottom: 0;
+    }
+    .bottom__nav-list-mobile {
+        width: 100%;
+        display: flex;
+        list-style: none;
+    }
+    .bottom__nav-item-mobile {
+        text-align: center;
+        padding: 0.6em 0em;
+    }
+    .bottom__nav-item-mobile a {
+        text-decoration: none;
+    }
 }

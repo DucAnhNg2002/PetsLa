@@ -1,27 +1,15 @@
-import React from "react"
+import React, { useContext } from "react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
 import "./header.css"
 import "../../grid.css"
+import {themeColor,themeHandle} from "../../app.js"
 
 function Header() {
-    const [color,setColor] = useState(["rgb(230, 150, 70)","black","black","black","black"]);
-    function handleChangePage(event) {
-        const resetColor = ["black","black","black","black","black"];
-        let id;
-        if(!event.target.getAttribute("id")) {
-            id = event.target.parentElement.getAttribute("id")%5;
-        }
-        else id = event.target.getAttribute("id");
-        resetColor[id] = "rgb(230, 150, 70)";
-        setColor(resetColor);
-    }
-    function addNavMobile() {
-        const headerNavMobi = document.querySelector('.header__nav-mobile');
-        headerNavMobi.style.position = "fixed";
+    const color = useContext(themeColor);
+    const handleChangePage = useContext(themeHandle);
 
-    }
     return (
         <React.Fragment>
             <div style={{borderBottom: "2px solid hsla(0,0%,66.7%,.3)",width: "100%"}}>
@@ -104,34 +92,6 @@ function Header() {
                         </Link>
                     </li>
                 </ul>
-            </div>
-            <div className="header__nav-mobile" style={{display:"none"}}>
-                <ul className="header__nav-list-mobile">
-                        <li className="header__nav-item-mobile col mb-3">
-                            <Link to="/" className="header__nav-item-mobile-link" onClick={handleChangePage} id={5} style={{color:color[0]}}>
-                                <i className="fa-solid fa-house"></i>
-                                <div>Home</div>
-                            </Link>
-                        </li>
-                        <li className="header__nav-item-mobile col mb-3">
-                            <Link to="/shop" className="header__nav-item-mobile-link" onClick={handleChangePage} id={6} style={{color:color[1]}}>
-                                <i className="fa-solid fa-shop"></i>
-                                <div>Shop</div>
-                            </Link>
-                        </li>
-                        <li className="header__nav-item-mobile col mb-3">
-                            <Link to="/cart" className="header__nav-item-mobile-link" onClick={handleChangePage} id={7} style={{color:color[2]}}>
-                                <i className="fa-solid fa-cart-shopping"></i>
-                                <div>Cart</div>
-                            </Link>
-                        </li>
-                        <li className="header__nav-item-mobile col mb-3">
-                            <Link to="/contact" className="header__nav-item-mobile-link" onClick={handleChangePage} id={8} style={{color:color[3]}}>
-                                <i className="fa-solid fa-arrow-right-to-bracket"></i>
-                                <div>Contact</div>
-                            </Link>
-                        </li>
-                    </ul>
             </div>
         </React.Fragment>
     )

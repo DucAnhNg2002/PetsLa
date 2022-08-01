@@ -166,21 +166,3 @@
 }
 
 
-/* header__nav-mobile */
-@media (max-width: 739px) {
-    .header__nav-mobile {
-        display: block !important;
-        width: 100%;
-    }
-    .header__nav-list-mobile {
-        width: 100%;
-        display: flex;
-        list-style: none;
-    }
-    .header__nav-item-mobile {
-        text-align: center;
-    }
-    .header__nav-item-mobile a {
-        text-decoration: none;
-    }
-}

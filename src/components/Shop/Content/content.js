@@ -67,6 +67,7 @@ const arrayItem = [
 ];
 
 function ListItem() {
+    // console.log($("div").get());
     return (
         <div className="list-items__wrap">
             {
