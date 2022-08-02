@@ -1,15 +1,11 @@
 import React, { useContext } from "react"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 import "./header.css"
 import "../../grid.css"
-import {themeColor,themeHandle} from "../../app.js"
 
 function Header() {
-    const color = useContext(themeColor);
-    const handleChangePage = useContext(themeHandle);
-
     return (
         <React.Fragment>
             <div style={{borderBottom: "2px solid hsla(0,0%,66.7%,.3)",width: "100%"}}>
@@ -67,29 +63,29 @@ function Header() {
             <div className ="header__nav grid wide">
                 <ul className="header__nav-list">
                     <li className="header__nav-item">
-                        <Link to="/" className="header__nav-item-link" onClick={handleChangePage} id={0} style={{color:color[0]}}>
+                        <NavLink to="/" className="header__nav-item-link">
                             Home
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="header__nav-item">
-                        <Link to="/shop" className="header__nav-item-link" onClick={handleChangePage} id={1} style={{color:color[1]}}>
+                        <NavLink to="/shop" className="header__nav-item-link">
                             Shop
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="header__nav-item">
-                        <Link to="/cart" className="header__nav-item-link" onClick={handleChangePage} id={2} style={{color:color[2]}}>
+                        <NavLink to="/cart" className="header__nav-item-link">
                             Cart
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="header__nav-item">
-                        <Link to="/contact" className="header__nav-item-link" onClick={handleChangePage} id={3} style={{color:color[3]}}>
+                        <NavLink to="/contact" className="header__nav-item-link">
                             Contact
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="header__nav-item"> 
-                        <Link to="/account" className="header__nav-item-link" onClick={handleChangePage} id={4} style={{color:color[4]}}>
+                        <NavLink to="/account" className="header__nav-item-link">
                             Account
-                        </Link>
+                        </NavLink>
                     </li>
                 </ul>
             </div>

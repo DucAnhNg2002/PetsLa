@@ -71,14 +71,15 @@ let listItemCart = new Map();
 
 function ListItem() {    
     function MessagesAddItemSuccess(_this) {
-        let count = listItemCart.get(_this);
-        count = (count != undefined) ? (count+1) : (1);
-        listItemCart.set(_this,count);
-        console.log(listItemCart);
+        
     }
 
     function HanleOnClickAddItemToCart(event) {
         const _this = (event.target.tagName == "DIV") ? (event.target) : (event.target.parentNode);
+        let count = listItemCart.get(_this);
+        count = (count !== undefined) ? (count+1) : (1);
+        listItemCart.set(_this,count);
+
         MessagesAddItemSuccess(_this);
     }
 

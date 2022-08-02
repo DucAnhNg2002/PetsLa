@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <div className="home">
             <Link to = "/shop">
-                <img src = {"https://www.leoasher.dev/static/media/banner2.caec085c.png"} />
+                <img src = "https://www.leoasher.dev/static/media/banner2.caec085c.png" />
             </Link>
         </div>
     )

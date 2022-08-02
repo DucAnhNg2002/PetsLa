@@ -77,5 +77,6 @@
     }
     .bottom__nav-item-mobile a {
         text-decoration: none;
+        color: black;
     }
 }

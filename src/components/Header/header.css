@@ -1,3 +1,6 @@
+.active {
+    color: rgb(230, 150, 70) !important;
+}
 
 /* Header Higher */
 .header__higher {

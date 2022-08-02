@@ -1,12 +1,8 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link,NavLink } from "react-router-dom";
 
 import "./footer.css";
-import {themeColor,themeHandle} from "../../app.js"
-
 export default function Footer() {
-    const color = useContext(themeColor);
-    const handleChangePage = useContext(themeHandle);
     
     return (
         <React.Fragment>
@@ -40,30 +36,30 @@ export default function Footer() {
             <div className="bottom__nav-mobile" style={{display:"none"}}>
                 <ul className="bottom__nav-list-mobile">
                     <li className="bottom__nav-item-mobile col mb-3">
-                        <Link to="/" className="bottom__nav-item-mobile-link" onClick={handleChangePage} id={5} style={{color:color[0]}}>
+                        <NavLink to="/" className="bottom__nav-item-mobile-link">
                            
                             <i className="fa-solid fa-house"></i>
                             <div>Home</div>
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="bottom__nav-item-mobile col mb-3">
-                        <Link to="/shop" className="bottom__nav-item-mobile-link" onClick={handleChangePage} id={6} style={{color:color[1]}}>
+                        <NavLink to="/shop" className="bottom__nav-item-mobile-link">
                    
                             <i className="fa-solid fa-shop"></i>
                             <div>Shop</div>
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="bottom__nav-item-mobile col mb-3">
-                        <Link to="/cart" className="bottom__nav-item-mobile-link" onClick={handleChangePage} id={7} style={{color:color[2]}}>
+                        <NavLink to="/cart" className="bottom__nav-item-mobile-link">
                             <i className="fa-solid fa-cart-shopping"></i>
                             <div>Cart</div>
-                       </Link>
+                       </NavLink>
                     </li>
                     <li className="bottom__nav-item-mobile col mb-3">
-                        <Link to="/contact" className="bottom__nav-item-mobile-link" onClick={handleChangePage} id={8} style={{color:color[3]}}>
+                        <NavLink to="/contact" className="bottom__nav-item-mobile-link">
                             <i className="fa-solid fa-arrow-right-to-bracket"></i>
                             <div>Contact</div>
-                        </Link>
+                        </NavLink>
                     </li>
                 </ul>
             </div>
