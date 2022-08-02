@@ -1,4 +1,5 @@
 import React from "react";
+import $ from "jquery";
 
 import "./content.css"
 import "./responsive-content.css"
@@ -66,8 +67,21 @@ const arrayItem = [
     }
 ];
 
-function ListItem() {
-    // console.log($("div").get());
+let listItemCart = new Map();
+
+function ListItem() {    
+    function MessagesAddItemSuccess(_this) {
+        let count = listItemCart.get(_this);
+        count = (count != undefined) ? (count+1) : (1);
+        listItemCart.set(_this,count);
+        console.log(listItemCart);
+    }
+
+    function HanleOnClickAddItemToCart(event) {
+        const _this = (event.target.tagName == "DIV") ? (event.target) : (event.target.parentNode);
+        MessagesAddItemSuccess(_this);
+    }
+
     return (
         <div className="list-items__wrap">
             {
@@ -93,7 +107,7 @@ function ListItem() {
                                         <i className="item__buy-icon fa-solid fa-bag-shopping"></i>
                                         <span>Buy now</span>
                                     </div>
-                                    <div className="item__cart">
+                                    <div className="item__cart" onClick={HanleOnClickAddItemToCart}>
                                         <i className="item__cart-icon fa-solid fa-cart-plus"></i>
                                         <span>Add to Cart</span>
                                     </div>
