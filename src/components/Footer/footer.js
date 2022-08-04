@@ -1,14 +1,13 @@
-import React, { useContext } from "react";
-import { Link,NavLink } from "react-router-dom";
+import React, {  } from "react";
+import { NavLink } from "react-router-dom";
 
 import "./footer.css";
 export default function Footer() {
-    
     return (
         <React.Fragment>
             <footer className="footer">
                 <div className="footer__banner">
-                    <img src = {"https://www.leoasher.dev/static/media/bannerFooter.4b09af08.png"} className="footer__banner-img"/>
+                    <img src = "https://www.leoasher.dev/static/media/bannerFooter.4b09af08.png" className="footer__banner-img"/>
                 </div>
                 <div className="footer__contain grid wide">
                     <div className="footer__contain-wrap">

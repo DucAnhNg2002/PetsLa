@@ -1,14 +1,16 @@
-import React, { createContext,useState } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router,Routes,Route } from "react-router-dom"
 
 import Footer from "./components/Footer/footer";
 import Header from "./components/Header/header";
 
-import Shop from "./components/Shop/shop";
-import Home from "./components/Home/home";
+import Shop from "./components/Main/Shop/shop";
+import Home from "./components/Main/Home/home";
 
 export default function App() {
+    const [backgroundMain,setBackgroundMain] = useState("#fafafa")
     return (
+        <div className="main" style={{backgroundColor: backgroundMain}}>
         <Router>
             <Header/>
             <Routes>
@@ -16,6 +18,7 @@ export default function App() {
                 <Route path = "/shop" element ={<Shop/>}/>
             </Routes>
             <Footer/>
-     </Router>
+        </Router>
+        </div>
     )
 }

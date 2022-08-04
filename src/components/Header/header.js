@@ -1,11 +1,19 @@
-import React, { useContext } from "react"
-import { useState } from "react"
+import React, { useState } from "react"
+import $ from "jquery"
 import { Link, NavLink } from "react-router-dom"
 
 import "./header.css"
 import "../../grid.css"
+import MenuCart from "../Menu-Cart/menu-cart"
 
 function Header() {
+    const [styleMenuCart,setStyleMenuCart] = useState({right: "-400px"})
+    function ClickOpenMenuCart() {
+        setStyleMenuCart(preStyleMenuCart => {
+            const styleMenuCart = {...preStyleMenuCart, right: "0px"}
+            return styleMenuCart
+        })
+    }
     return (
         <React.Fragment>
             <div style={{borderBottom: "2px solid hsla(0,0%,66.7%,.3)",width: "100%"}}>
@@ -54,7 +62,7 @@ function Header() {
                             <input className = "header__search__input" placeholder="Everything here is better than your ex" type = "text" />
                             <i className ="header__search__icon fa-solid fa-magnifying-glass"></i>
                         </div>
-                        <div className = "header__cart">
+                        <div className = "header__cart" onClick={ClickOpenMenuCart}>
                             <i className ="header__cart__icon fa-solid fa-cart-shopping"></i>
                         </div>
                     </div>
@@ -89,6 +97,7 @@ function Header() {
                     </li>
                 </ul>
             </div>
+            <MenuCart styleMenuCart = {styleMenuCart} setStyleMenuCart = {setStyleMenuCart} />
         </React.Fragment>
     )
 }

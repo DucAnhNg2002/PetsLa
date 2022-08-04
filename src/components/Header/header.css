@@ -45,7 +45,6 @@
 /* Header Higher */
 
 
-
 /* Header */
 .header {
     width: 100%;
@@ -93,7 +92,9 @@
     border-radius: 3px;
     align-items: center;
 }
-
+.header__cart {
+    cursor: pointer;
+}
 .header__cart__icon {
     font-size: 1.5em;
 }
@@ -123,9 +124,7 @@
 }
 /* Header Nav */
 
-
 /* Resposive */
-
 /* Mobile */
 @media (max-width: 739px) {
     .header__higher-info-phone,

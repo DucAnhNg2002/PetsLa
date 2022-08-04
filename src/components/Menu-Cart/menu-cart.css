@@ -1,0 +1,45 @@
+.btnclose {
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+    border: 0px;
+
+    font-size: 1.5rem;
+    background-color: rgb(255, 255, 255);
+    color: rgb(163, 162, 162);
+}
+
+.menu-cart-wrap {
+    position: fixed;
+    z-index: 2;
+    top: 0px;
+    right: 0px;
+
+    width: 400px;
+    height: 100%;
+
+    background-color: rgb(255, 255, 255) !important;
+    color: black;
+    border-left: 1px solid rgba(0,0,0,.2);
+
+    transition: all .3s;
+}
+
+.menu-cart__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid hsla(0,0%,66.7%,.6);
+}
+.menu-cart__header-title {
+    padding: .375rem 0 .25rem;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+.menu-cart__header-close {
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+}
