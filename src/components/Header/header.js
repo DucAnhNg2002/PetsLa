@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import $ from "jquery"
 import { Link, NavLink } from "react-router-dom"
 
 import "./header.css"
@@ -32,7 +31,7 @@ function Header() {
                             </div>
                             <div className="header__higher-info-img">
                                 <Link to = "/">
-                                    <img src = {"https://www.leoasher.dev/static/media/logofull.f2aa3784.png"}/>
+                                    <img src = {"https://www.leoasher.dev/static/media/logofull.f2aa3784.png"} alt = "Logo Pesla"/>
                                 </Link>
                             </div>
                         </div>
@@ -55,7 +54,7 @@ function Header() {
                     <div className = "header__wrap">
                         <div className = "header__logo">
                             <Link to = "/">
-                                <img className = "header__logo__img" src = {"https://www.leoasher.dev/static/media/logofull.f2aa3784.png"}/>
+                                <img className = "header__logo__img" src = {"https://www.leoasher.dev/static/media/logofull.f2aa3784.png"} alt = "Logo Pesla"/>
                             </Link>
                         </div>
                         <div className = "header__search">
@@ -64,6 +63,7 @@ function Header() {
                         </div>
                         <div className = "header__cart" onClick={ClickOpenMenuCart}>
                             <i className ="header__cart__icon fa-solid fa-cart-shopping"></i>
+                            <div className="header__cart__count-items"> 2 </div>
                         </div>
                     </div>
                 </div>

@@ -7,7 +7,7 @@ export default function Footer() {
         <React.Fragment>
             <footer className="footer">
                 <div className="footer__banner">
-                    <img src = "https://www.leoasher.dev/static/media/bannerFooter.4b09af08.png" className="footer__banner-img"/>
+                    <img src = "https://www.leoasher.dev/static/media/bannerFooter.4b09af08.png" className="footer__banner-img" alt="Footer Banner"/>
                 </div>
                 <div className="footer__contain grid wide">
                     <div className="footer__contain-wrap">

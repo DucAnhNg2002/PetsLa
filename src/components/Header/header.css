@@ -93,10 +93,29 @@
     align-items: center;
 }
 .header__cart {
+    display: flex;
+    text-align: center;
+    align-items: center;
     cursor: pointer;
+    position: relative;
 }
 .header__cart__icon {
     font-size: 1.5em;
+}
+.header__cart__count-items {
+    position: absolute;
+    top: -.8em;
+    right: -.8em;
+
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #e69646;
+    color: #fff;
+
+    border-radius: 50%;    
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 1.5rem;
 }
 /* Header */
 

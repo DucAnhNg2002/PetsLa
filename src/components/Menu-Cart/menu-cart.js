@@ -1,10 +1,11 @@
-import React, { createContext, useMemo, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import $ from "jquery"
+
+import { ListItems } from "../../app";
 import "./menu-cart.css"
 
-export const products = createContext();
 export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
-    const [listItems,setListItems] = useState(new Map([["a",2],["b",3]]));
+    const [listItems,setListItems] = useContext(ListItems)
     const countItems = useMemo(() => {
         const count = function() {
             let ans = 0;
@@ -21,8 +22,19 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
             return styleMenuCart
         })
     }
+    function RemoveItem(e) {
+        let item = e.target;
+        while(!item.classList.contains("menu-cart-item")) {
+            item = item.parentElement
+        }
+        let key = Array.from(listItems.keys()).find(key => key.id = item.getAttribute("id"))
+        setListItems(preListItems => {
+            let listItems = new Map(preListItems) 
+            listItems.delete(key) 
+            return listItems
+        })
+    }
     return (
-        <products.Provider value = {[listItems,setListItems]}>
         <div className="menu-cart-wrap" style={{right: styleMenuCart.right}}>
             <div className="menu-cart">
                 <div className="menu-cart__header">
@@ -30,11 +42,31 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
                         Cart: {countItems} Items
                     </div>
                     <div className="menu-cart__header-close" onClick={CloseMenuCart}>
-                    <i class="fa-solid fa-xmark btnclose"></i>
+                    <i className ="fa-solid fa-xmark btnclose"></i>
                     </div>
+                </div>
+                <div className = "menu-cart__body">
+                {
+                    Array.from(listItems).map(([key,value],idx) => {
+                        return (
+                            <div className="menu-cart-item" key={idx} id = {key.id}>
+                                <div className="product-info">
+                                    <div className="product-img" style={{backgroundImage: `url(${key.images})`}}></div>
+                                    <div className="product-description">
+                                        <div className = "product-name"> {key.product_name} </div>
+                                        <div className = "product-price"> {key.price}đ x {value}</div>
+                                        <div className = "product-total-price">{value*key.price}</div>
+                                    </div>
+                                </div>
+                                <div className="product-button-close" onClick={RemoveItem}>
+                                    <i className ="fa-solid fa-xmark btnclose"></i>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
                 </div>
             </div> 
         </div>
-        </products.Provider>
     )
 }

@@ -1,28 +1,32 @@
-import React, { useEffect, useState } from "react";
-import $ from "jquery";
+import React, { useEffect, useState, useContext } from "react";
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import "./content.css"
 import "./responsive-content.css"
-
+import { ListItems } from "../../../../app";
 // const arrayItem = [
 //     {
+//         id: 1,
 //         images: "https://petsla-api.herokuapp.com/media/photos/products/p8.jpg",
 //         product_name: "Đèn cảm ứng silicon chim cánh cụt...",
 //         price: "360.000"
 //     },
 //     {
+//         id: 2,
 //         images: "https://petsla-api.herokuapp.com/media/photos/products/p1.jpg",
 //         product_name: "Chú mèo Amuse Cat may mắn",
 //         price: "350.000"
 //     },
 //     {
+//         id: 3,
 //         images: "https://petsla-api.herokuapp.com/media/photos/products/p7.webp",
 //         product_name: "Gối Ôm Mèo MelyCat to và dài",
 //         price: "480.000"
 //     },
 //     {
+//         id: 4,
 //         images: "https://petsla-api.herokuapp.com/media/photos/products/p11.jpg",
 //         product_name: "Máy phun sương Misty Cat",
 //         price: "350.000"
@@ -80,10 +84,11 @@ function ListItem() {
         draggable: true,
         progress: undefined,
     });
-    const [arrayItem,setArrayItem] = useState([]) // product
+    const [arrayItem,setArrayItem] = useState([]) // use get product from API
+    const [listItems,setListItems] = useContext(ListItems) // use save item when click add
     useEffect(function() {
         // call API
-        console.log("Loading API")
+        console.log("Loading API!")
         fetch("http://petsla-api.herokuapp.com/products/")
         .then(response => response.json())
         .then(data => {
@@ -92,10 +97,30 @@ function ListItem() {
                 e.images = "http://petsla-api.herokuapp.com" + e.images
                 e.price = e.price.toLocaleString('vi')
             });
+        console.log("Finish load API!")
             while(arrayItem.length > 12) arrayItem.pop()
             setArrayItem(data)
         })
     },[]);
+    function addItem(e) {
+    //    notify()
+        let item = e.target;
+        while(!item.classList.contains("item")) {
+            item = item.parentElement
+        }
+        item = arrayItem.find((value) => {
+            return value.id == item.getAttribute("id")
+        })
+        setListItems(prelistItems => {
+            let listItems = new Map(prelistItems)
+            const count = (listItems.get(item) == undefined)? (1) : (listItems.get(item)+1)
+            listItems.set(item,count)
+            // console.log(Array.from(listItems))
+            // console.log(JSON.stringify(listItems))
+            localStorage.setItem("pesla-item",JSON.stringify(Array.from(listItems)))
+            return listItems
+        })
+    }
     return (
         <React.Fragment>
         <div className="toast-messages">
@@ -103,9 +128,9 @@ function ListItem() {
         </div>
         <div className="list-items__wrap">
             {
-                arrayItem.map((item) => {
+                arrayItem.map((item,idx) => {
                     return (
-                        <div className="item col c-6 m-4 l-3" key={item.id} >
+                        <div className="col c-6 m-4 l-3 item" key = {idx} id = {item.id}>
                             <a className="item__product" href="/">
                                 <div className="item__image" style={{backgroundImage:`url(${item.images})`}}/>
                             </a>
@@ -125,7 +150,7 @@ function ListItem() {
                                         <i className="item__buy-icon fa-solid fa-bag-shopping"></i>
                                         <span>Buy now</span>
                                     </div>
-                                    <div className="item__cart" onClick={notify}>
+                                    <div className="item__cart" onClick={addItem}>
                                         <i className="item__cart-icon fa-solid fa-cart-plus"></i>
                                         <span>Add to Cart</span>
                                     </div>
