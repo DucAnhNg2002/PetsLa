@@ -3,7 +3,6 @@
     height: 32px;
     padding: 8px;
     border: 0px;
-
     font-size: 1.5rem;
     background-color: rgb(255, 255, 255);
     color: rgb(163, 162, 162);
@@ -15,14 +14,11 @@
     z-index: 2;
     top: 0px;
     right: 0px;
-
     width: 400px;
     height: 100%;
-
     background-color: rgb(255, 255, 255) !important;
     color: black;
     border-left: 1px solid rgba(0,0,0,.2);
-
     transition: all .3s;
 }
 
@@ -39,6 +35,7 @@
     line-height: 1.5;
     font-size: 1.25rem;
     font-weight: 400;
+    font-family: 'Lato', sans-serif;
 }
 .menu-cart__header-close {
    display: flex;
@@ -53,7 +50,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding: 1rem;
 }
 .product-info {
@@ -113,8 +109,8 @@
     line-height: 1.5;
     cursor: pointer;
     border-radius: .3rem;
-
     transition: all .1s;
+    font-family: 'Lato', sans-serif;
 }
 .btn-primary:hover {
     background-color: #e69646;
