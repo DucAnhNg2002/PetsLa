@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import "./content.css"
 import "./responsive-content.css"
+import { keyLocalStorage } from "../../../../app";
 import { ListItems } from "../../../../app";
 // const arrayItem = [
 //     {
@@ -77,7 +78,7 @@ function ListItem() {
     // toast_messges    
     const notify = () => toast.success('Add to cart successfuly!', { // toast_messages
         position: "top-right",
-        autoClose: 1500,
+        autoClose: 1200,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -114,9 +115,7 @@ function ListItem() {
             let listItems = new Map(prelistItems)
             const count = (listItems.get(item) == undefined)? (1) : (listItems.get(item)+1)
             listItems.set(item,count)
-            // console.log(Array.from(listItems))
-            // console.log(JSON.stringify(listItems))
-            localStorage.setItem("pesla-item",JSON.stringify(Array.from(listItems)))
+            localStorage.setItem(keyLocalStorage,JSON.stringify(Array.from(listItems))) // add item to storage
             return listItems
         })
     }

@@ -15,7 +15,6 @@
     top: 0px;
     right: 0px;
     width: 400px;
-    height: 100%;
     background-color: rgb(255, 255, 255) !important;
     color: black;
     border-left: 1px solid rgba(0,0,0,.2);
@@ -44,7 +43,10 @@
 }
 /* Menu__Cart__Header */
 
-/* Menu__Cart__Item */
+/* Menu__Cart__Item ( Body ) */
+.menu-cart__body {
+    overflow-y: scroll;
+}
 .menu-cart-item {
     border-bottom: 1px solid hsla(0,0%,66.7%,.6);
     display: flex;
@@ -73,6 +75,9 @@
 .product-name {
     font-size: 1rem;
     line-height: 1rem;
+    /* white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; */
 }
 .product-price {
     font-size: .825rem;
@@ -89,12 +94,12 @@
 
 /* Menu__Cart__Footer */
 .menu-cart__footer {
-    width: 100%;
+    width: 400px;
     display: flex;
     flex-direction: column;
     padding: 10px;
 
-    position: absolute;
+    position: fixed;
     bottom: 0;
     background-color: rgb(255, 255, 255);
 }
