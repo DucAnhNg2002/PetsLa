@@ -41,7 +41,7 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
                     <i className ="fa-solid fa-xmark btnclose"></i>
                     </div>
                 </div>
-                <div className = "menu-cart__body" style={{height: window.screen.height - 300}}>
+                <div className = "menu-cart__body" style={{}}>
                 {
                     (
                     listItems.length > 0 && 
