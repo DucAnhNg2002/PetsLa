@@ -48,6 +48,15 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
                     listItems.map(([key,value],idx) => {
                         return (
                             <div className="menu-cart-item" key={idx} id = {key.id}>
+                                <div className="product-quantity">
+                                    <button className="quantity-btn">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+                                    {value}
+                                    <button className="quantity-btn">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </button>
+                                </div>
                                 <div className="product-info">
                                     <div className="product-img" style={{backgroundImage: `url(${key.images})`}}></div>
                                     <div className="product-description">
