@@ -11,19 +11,13 @@ export const ListItems = createContext()
 export const keyLocalStorage = "pesla-item"
 export default function App() {
     const [listItems,setListItems] = useState(function() {
-        if(localStorage.getItem(keyLocalStorage)) {
-            const get = JSON.parse(localStorage.getItem(keyLocalStorage));
-            return new Map(get);
-        }
-        else {
-            return new Map();
-        }
+        return (localStorage.getItem(keyLocalStorage)) ? (JSON.parse(localStorage.getItem(keyLocalStorage))) : (new Array());
     })
-
+    // listItems = [key,value] ( key = obj, value = count )
     const countItems = useMemo(() => {
         const count = function() {
             let ans = 0;
-            listItems.forEach((value,key,listItems) => {
+            listItems.forEach(([key,value]) => {
                 ans += value;
             })
             return ans;
@@ -34,13 +28,13 @@ export default function App() {
     const totalPrice = useMemo(() => {
         const total_Price = function() {
             let ans = 0;
-            listItems.forEach((value,key,listItems) => {
-                ans += value*key.price;
+            listItems.forEach(([key,value]) => {
+                ans += value * key.price;
             })
             return ans;
         }
         return `${total_Price().toLocaleString('vi')}đ`;
-    })
+    },[listItems])
 
     return (
         <div className="main">

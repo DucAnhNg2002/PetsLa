@@ -112,10 +112,15 @@ function ListItem() {
             return value.id == item.getAttribute("id")
         })
         setListItems(prelistItems => {
-            let listItems = new Map(prelistItems)
-            const count = (listItems.get(item) == undefined)? (1) : (listItems.get(item)+1)
-            listItems.set(item,count)
-            localStorage.setItem(keyLocalStorage,JSON.stringify(Array.from(listItems))) // add item to storage
+            let listItems = [...prelistItems]
+            let idx = listItems.findIndex(([key,value]) => {
+                return key.id == item.id
+            })
+            if(idx == -1) {
+                listItems.push([item,1])
+            }
+            else listItems[idx][1] ++
+            localStorage.setItem(keyLocalStorage,JSON.stringify(listItems)) // add item to storage
             return listItems
         })
     }

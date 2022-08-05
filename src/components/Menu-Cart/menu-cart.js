@@ -17,15 +17,14 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
         while(!item.classList.contains("menu-cart-item")) {
             item = item.parentElement
         }
-    //    console.log(item.getAttribute("id"))
-        let key = Array.from(listItems.keys()).find((val) => {
-            return val.id == item.getAttribute("id")
-        })
-        console.log(key)
         setListItems(preListItems => {
-            let listItems = new Map(preListItems) 
-            listItems.delete(key) 
-            localStorage.setItem(keyLocalStorage,JSON.stringify(Array.from(listItems))) // add item to storage
+            let listItems = [...preListItems]
+            // find index element from array when click remove by id
+            const idx = listItems.findIndex(([key,value]) => {
+                return key.id == item.getAttribute("id")
+            })
+            listItems.splice(idx,1) 
+            localStorage.setItem(keyLocalStorage,JSON.stringify(listItems)) // add item to storage
             return listItems
         })
     }
@@ -42,7 +41,7 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
                 </div>
                 <div className = "menu-cart__body" style={{height: window.screen.height - 300}}>
                 {
-                    Array.from(listItems).map(([key,value],idx) => {
+                    (listItems).map(([key,value],idx) => {
                         return (
                             <div className="menu-cart-item" key={idx} id = {key.id}>
                                 <div className="product-info">
