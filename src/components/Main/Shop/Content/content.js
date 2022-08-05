@@ -5,8 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import "./content.css"
 import "./responsive-content.css"
-import { keyLocalStorage } from "../../../../app";
-import { ListItems } from "../../../../app";
+import { keyLocalStorage } from "../../../../App";
+import { ListItems } from "../../../../App";
 // const arrayItem = [
 //     {
 //         id: 1,
