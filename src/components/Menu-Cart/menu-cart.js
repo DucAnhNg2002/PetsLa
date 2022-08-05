@@ -1,21 +1,11 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext } from "react";
 import $ from "jquery"
 
 import { ListItems } from "../../app";
 import "./menu-cart.css"
 
 export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
-    const [listItems,setListItems] = useContext(ListItems)
-    const countItems = useMemo(() => {
-        const count = function() {
-            let ans = 0;
-            listItems.forEach((value,key,listItems) => {
-                ans += value;
-            })
-            return ans;
-        }
-        return count();
-    },[listItems])
+    const [listItems,setListItems,countItems] = useContext(ListItems)
     function CloseMenuCart() {
         setStyleMenuCart(preStyleMenuCart => {
             const styleMenuCart = {...preStyleMenuCart, right: "-400px"}

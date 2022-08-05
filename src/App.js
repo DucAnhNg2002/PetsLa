@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState,useMemo } from "react";
 import { BrowserRouter as Router,Routes,Route } from "react-router-dom"
 
 import Footer from "./components/Footer/footer";
@@ -20,12 +20,22 @@ export default function App() {
             return new Map();
         }
     })
-    
+    const countItems = useMemo(() => {
+        const count = function() {
+            let ans = 0;
+            listItems.forEach((value,key,listItems) => {
+                ans += value;
+            })
+            return ans;
+        }
+        return count();
+    },[listItems])
+
     return (
         <div className="main">
-            <ListItems.Provider value = {[listItems,setListItems]}>
+            <ListItems.Provider value = {[listItems,setListItems,countItems]}>
         <Router>
-            <Header/>
+            <Header countItems = {countItems} />
             <Routes>
                 <Route path = "/" element ={<Home/>}/>
                 <Route path = "/shop" element ={<Shop/>}/>

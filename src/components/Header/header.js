@@ -5,7 +5,7 @@ import "./header.css"
 import "../../grid.css"
 import MenuCart from "../Menu-Cart/menu-cart"
 
-function Header() {
+function Header({countItems}) {
     const [styleMenuCart,setStyleMenuCart] = useState({right: "-400px"})
     function ClickOpenMenuCart() {
         setStyleMenuCart(preStyleMenuCart => {
@@ -63,7 +63,7 @@ function Header() {
                         </div>
                         <div className = "header__cart" onClick={ClickOpenMenuCart}>
                             <i className ="header__cart__icon fa-solid fa-cart-shopping"></i>
-                            <div className="header__cart__count-items"> 2 </div>
+                            <div className="header__cart__count-items"> {countItems} </div>
                         </div>
                     </div>
                 </div>
