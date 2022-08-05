@@ -90,3 +90,38 @@
     cursor: pointer;
 }
 /* Menu__Cart__Item */
+
+/* Menu__Cart__Footer */
+.menu-cart__footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(255, 255, 255);
+}
+.menu-cart-btn {
+    margin: .375rem;
+    padding: .375rem .5rem;
+    border: 1px solid #e69646;
+    color: #e69646;
+    background-color: inherit;
+
+    font-size: 1.1rem;
+    line-height: 1.5;
+    cursor: pointer;
+    border-radius: .3rem;
+
+    transition: all .1s;
+}
+.btn-primary:hover {
+    background-color: #e69646;
+    color: #fff;
+}
+.btn-view-cart {
+    background-color: #e69646;
+    color: #fff;
+}
+/* Menu__Cart__Footer */

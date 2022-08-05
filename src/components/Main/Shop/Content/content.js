@@ -95,7 +95,6 @@ function ListItem() {
             let arrayItem = data;
             arrayItem.forEach(e => {
                 e.images = "http://petsla-api.herokuapp.com" + e.images
-                e.price = e.price.toLocaleString('vi')
             });
         console.log("Finish load API!")
             while(arrayItem.length > 12) arrayItem.pop()
@@ -103,7 +102,7 @@ function ListItem() {
         })
     },[]);
     function addItem(e) {
-    //    notify()
+        notify()
         let item = e.target;
         while(!item.classList.contains("item")) {
             item = item.parentElement
@@ -142,7 +141,7 @@ function ListItem() {
                                         </div>
                                     </a>
                                     <div className="item__desc-price">
-                                        {item.price}
+                                        {item.price.toLocaleString('vi')}
                                     </div>
                                 </div>
                                 <div className="item__buy-cart-wrap">

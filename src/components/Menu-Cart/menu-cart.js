@@ -5,7 +5,7 @@ import { ListItems } from "../../app";
 import "./menu-cart.css"
 
 export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
-    const [listItems,setListItems,countItems] = useContext(ListItems)
+    const [listItems,setListItems,countItems,totalPrice] = useContext(ListItems)
     function CloseMenuCart() {
         setStyleMenuCart(preStyleMenuCart => {
             const styleMenuCart = {...preStyleMenuCart, right: "-400px"}
@@ -44,8 +44,8 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
                                     <div className="product-img" style={{backgroundImage: `url(${key.images})`}}></div>
                                     <div className="product-description">
                                         <div className = "product-name"> {key.product_name} </div>
-                                        <div className = "product-price"> {key.price}đ x {value}</div>
-                                        <div className = "product-total-price">{value*key.price}</div>
+                                        <div className = "product-price"> {key.price.toLocaleString('vi')}đ x {value}</div>
+                                        <div className = "product-total-price">{(value*key.price).toLocaleString('vi')}đ</div>
                                     </div>
                                 </div>
                                 <div className="product-button-close" onClick={RemoveItem}>
@@ -55,6 +55,10 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
                         )
                     })
                 }
+                </div>
+                <div className="menu-cart__footer">
+                    <button type = "button" className="menu-cart-btn btn-primary">Checkout ({totalPrice})</button>
+                    <button type = "button" className="menu-cart-btn btn-view-cart">View Cart</button>
                 </div>
             </div> 
         </div>

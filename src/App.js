@@ -30,10 +30,19 @@ export default function App() {
         }
         return count();
     },[listItems])
-
+    const totalPrice = useMemo(() => {
+        const total_Price = function() {
+            let ans = 0;
+            listItems.forEach((value,key,listItems) => {
+                ans += value*key.price;
+            })
+            return ans;
+        }
+        return `${total_Price().toLocaleString('vi')}đ`;
+    })
     return (
         <div className="main">
-            <ListItems.Provider value = {[listItems,setListItems,countItems]}>
+            <ListItems.Provider value = {[listItems,setListItems,countItems,totalPrice]}>
         <Router>
             <Header countItems = {countItems} />
             <Routes>
