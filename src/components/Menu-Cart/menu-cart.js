@@ -28,8 +28,10 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
             return listItems
         })
     }
+    const a = [5];
     return (
-        <div className="menu-cart-wrap" style={{right: styleMenuCart.right, height: window.screen.height}}>
+    //    <div className="menu-cart-wrap" style={{right: styleMenuCart.right, height: window.screen.height}}>
+        <div className="menu-cart-wrap" style={{right: styleMenuCart.right, height: "100%"}}>
             <div className="menu-cart">
                 <div className="menu-cart__header">
                     <div className="menu-cart__header-title">
@@ -41,13 +43,15 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
                 </div>
                 <div className = "menu-cart__body" style={{height: window.screen.height - 300}}>
                 {
-                    (listItems).map(([key,value],idx) => {
+                    (
+                    listItems.length > 0 && 
+                    listItems.map(([key,value],idx) => {
                         return (
                             <div className="menu-cart-item" key={idx} id = {key.id}>
                                 <div className="product-info">
                                     <div className="product-img" style={{backgroundImage: `url(${key.images})`}}></div>
                                     <div className="product-description">
-                                        <div className = "product-name"> {key.product_name} {key.id}</div>
+                                        <div className = "product-name"> {key.product_name}</div>
                                         <div className = "product-price"> {key.price.toLocaleString('vi')}đ x {value}</div>
                                         <div className = "product-total-price">{(value*key.price).toLocaleString('vi')}đ</div>
                                     </div>
@@ -57,7 +61,15 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
                                 </div>
                             </div>
                         )
-                    })
+                    }) 
+                    )
+                    || 
+                    (
+                        <div className="no-products">
+                            <img className="no-products-img" src = "https://www.leoasher.dev/static/media/sadCat.2335333f.png" />
+                            <h3 className="no-products-title"> There's no item in cart! </h3>
+                        </div>
+                    )
                 }
                 </div>
                 <div className="menu-cart__footer">
