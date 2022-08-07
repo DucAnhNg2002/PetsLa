@@ -4,6 +4,15 @@ import $ from "jquery"
 import { ListItems } from "../../App";
 import "./menu-cart.css"
 import { keyLocalStorage } from "../../App";
+
+function getItem(target) {
+    let item = target
+    while(!item.classList.contains("menu-cart-item")) {
+        item = item.parentElement
+    }
+    return item
+}
+
 export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
     const [listItems,setListItems,countItems,totalPrice] = useContext(ListItems)
     function CloseMenuCart() {
@@ -13,10 +22,7 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
         })
     }
     function RemoveItem(e) {
-        let item = e.target;
-        while(!item.classList.contains("menu-cart-item")) {
-            item = item.parentElement
-        }
+        let item = getItem(e.target)
         setListItems(preListItems => {
             let listItems = [...preListItems]
             // find index element from array when click remove by id
@@ -28,7 +34,32 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
             return listItems
         })
     }
-    const a = [5];
+    function IncreaseItem(e) {
+        let item = getItem(e.target)
+        setListItems(preListItems => {
+            let listItems = [...preListItems]
+            // find index element from array when click increase by id
+            const idx = listItems.findIndex(([key,value]) => {
+                return key.id == item.getAttribute("id")
+            })
+            listItems[idx][1] ++;
+            localStorage.setItem(keyLocalStorage,JSON.stringify(listItems)) // add item to storage
+            return listItems
+        })
+    }
+    function DecreaseItem(e) {
+        let item = getItem(e.target)
+        setListItems(preListItems => {
+            let listItems = [...preListItems]
+            // find index element from array when click increase by id
+            const idx = listItems.findIndex(([key,value]) => {
+                return key.id == item.getAttribute("id")
+            })
+            listItems[idx][1] --;
+            localStorage.setItem(keyLocalStorage,JSON.stringify(listItems)) // add item to storage
+            return listItems
+        })
+    }
     return (
     //    <div className="menu-cart-wrap" style={{right: styleMenuCart.right, height: window.screen.height}}>
         <div className="menu-cart-wrap" style={{right: styleMenuCart.right, height: "100%"}}>
@@ -41,7 +72,7 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
                     <i className ="fa-solid fa-xmark btnclose"></i>
                     </div>
                 </div>
-                <div className = "menu-cart__body" style={{}}>
+                <div className = "menu-cart__body">
                 {
                     (
                     listItems.length > 0 && 
@@ -49,13 +80,24 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
                         return (
                             <div className="menu-cart-item" key={idx} id = {key.id}>
                                 <div className="product-quantity">
-                                    <button className="quantity-btn">
-                                        <i class="fa-solid fa-plus"></i>
+                                    <button className ="quantity-btn quantity-btn--active" onClick={IncreaseItem}>
+                                        <i className ="fa-solid fa-plus"></i>
                                     </button>
-                                    {value}
-                                    <button className="quantity-btn">
-                                        <i class="fa-solid fa-minus"></i>
-                                    </button>
+                                    <span>{value}</span>
+                                    {
+                                        (    
+                                            value == 1 && 
+                                            <button className = "quantity-btn">
+                                                <i className ="fa-solid fa-minus"></i>
+                                            </button>
+                                        )
+                                        ||
+                                        (
+                                            <button className ="quantity-btn quantity-btn--active" onClick={DecreaseItem}>
+                                                <i className ="fa-solid fa-minus"></i>
+                                            </button>
+                                        )
+                                    }
                                 </div>
                                 <div className="product-info">
                                     <div className="product-img" style={{backgroundImage: `url(${key.images})`}}></div>
