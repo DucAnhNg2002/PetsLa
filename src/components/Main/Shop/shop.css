@@ -117,3 +117,15 @@
                 ->  item_buy-cart_wrap      -> item__buy
                                             -> item_cart
 */
+
+
+
+
+/* Pagination */
+.pagination {
+    display: flex;
+    margin: 1.625rem .25rem 1.875rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+}
