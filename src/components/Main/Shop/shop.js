@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext, useRef } from "react";
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import $ from "jquery"
 
 import "./shop.css"
 import "./responsive-content.css"
@@ -131,6 +131,9 @@ function HeaderProduct({firstArrayItem,setArrayItem}) {
     )
 }
 
+function scrollTop() {
+    $("html").animate({ scrollTop: 0}, 300)
+}
 let firstArrayItem = []
 export default function Shop() {
     // toast_messges    
@@ -163,6 +166,7 @@ export default function Shop() {
             firstArrayItem = data
             setArrayItem(data)
         })
+        $("html").animate({ scrollTop: 0}, 300)
         // 40 items
     },[]);
     function addItem(e) {
@@ -188,6 +192,7 @@ export default function Shop() {
         })
     }
     function setProductPerPage(e) {
+        $("html").animate({ scrollTop: 0}, 300)
         setItemPerPage(e.target.value)
         setCurrentPage(1)
     }
@@ -239,7 +244,7 @@ export default function Shop() {
         <div className="pagination">
             <ul className="pagination-wrap">
                 <li className={`page-item ${(currentPage == 1)?("page-item--disable"):("")}`} style={{borderTopLeftRadius: ".2rem", borderBottomLeftRadius: ".2rem"}}
-                    onClick = {() => {if( currentPage > 1) { setCurrentPage(preCurrentPage => preCurrentPage-1)}}}>
+                    onClick = {() => {if( currentPage > 1) { scrollTop(); setCurrentPage(preCurrentPage => preCurrentPage-1)} }}>
                     <i className="page-link fa-solid fa-angle-left"></i>
                 </li>
                 {
@@ -251,7 +256,7 @@ export default function Shop() {
                         }
                         for(let i = 1; i <= numberPages; i++) {
                             pageItems.push(
-                                <li className={`page-item ${(currentPage == i)?("page-item--active"):("")}`} key = {i} onClick = {() => {setCurrentPage(i)}}>
+                                <li className={`page-item ${(currentPage == i)?("page-item--active"):("")}`} key = {i} onClick = {() => {setCurrentPage(i); scrollTop()}}>
                                     <span className="page-link">{i}</span>
                                 </li>
                             )
@@ -260,7 +265,7 @@ export default function Shop() {
                     }()
                 }
                 <li className={`page-item ${(currentPage == numberPages)?("page-item--disable"):("")}`} style={{borderTopRightRadius: ".2rem", borderBottomRightRadius: ".2rem"}}
-                    onClick = {() => {if( currentPage < numberPages) { setCurrentPage(preCurrentPage => preCurrentPage+1)}}}>
+                    onClick = {() => {if( currentPage < numberPages) { scrollTop(); setCurrentPage(preCurrentPage => preCurrentPage+1) }}}>
                     <i className="page-link fa-solid fa-angle-right"></i>
                 </li>
             </ul>

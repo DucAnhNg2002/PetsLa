@@ -1,3 +1,11 @@
+## *Sử dụng framework ReactJS*
+*    Fetch API products
+*    Lựa chọn số items/page và select page
+*    Sắp xếp sản phẩm
+*    Menu cart: thêm, xóa, tăng, giảm sản phẩm vào gian hàng
+*    Responsive trên pc, latop, mobile
+*    ....
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -61,7 +61,10 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
         })
     }
     return (
-    //    <div className="menu-cart-wrap" style={{right: styleMenuCart.right, height: window.screen.height}}>
+    <React.Fragment>
+        <div className="background-wrap-menu-cart" style={{width: window.innerWidth, height: window.innerWidth,
+        display: `${(styleMenuCart.right == "-400px")?("none"):("block")}`}} onClick = {CloseMenuCart}>
+        </div>
         <div className="menu-cart-wrap" style={{right: styleMenuCart.right, height: "100%"}}>
             <div className="menu-cart">
                 <div className="menu-cart__header">
@@ -129,5 +132,6 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
                 </div>
             </div> 
         </div>
+    </React.Fragment>
     )
 }

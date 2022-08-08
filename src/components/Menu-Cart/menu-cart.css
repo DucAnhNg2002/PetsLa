@@ -1,3 +1,14 @@
+.background-wrap-menu-cart {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: .5;
+    z-index: 50;
+    transition: all 1s;
+}
+
+
 .btnclose {
     width: 32px;
     height: 32px;
@@ -11,7 +22,7 @@
 
 .menu-cart-wrap {
     position: fixed;
-    z-index: 2;
+    z-index: 100;
     top: 0px;
     right: 0px;
     max-width: 100%;
@@ -92,6 +103,7 @@
 
 .product-info {
     display: flex;
+    flex: 1 1;
 }
 .product-img {
     margin: 0rem 1rem;
@@ -111,9 +123,10 @@
 .product-name {
     font-size: 1rem;
     line-height: 1rem;
-    /* white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden; */
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .product-price {
     font-size: .825rem;

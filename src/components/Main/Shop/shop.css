@@ -10,7 +10,7 @@
 }
 .label-sort-product {
     margin-right: .625rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-family: inherit;
 }
 #sort-product {
@@ -22,7 +22,7 @@
     font-family: inherit;
 }
 .option-sort-product {
-
+    
 }
 /* Header Product */
 
@@ -134,6 +134,7 @@
     padding: .375em 0;
 
     border-radius: .3125rem;
+    transition: all 0.1s !important;
 }
 .item__cart-icon, .item__buy-icon {
     margin-right: .3125rem;

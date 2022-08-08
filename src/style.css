@@ -3,10 +3,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Nunito, sans-serif";
+
 }
 
 .root {
     background-color: rgb(246, 249, 252);
     color: black;
-    transition: background-color .3s;
 }
