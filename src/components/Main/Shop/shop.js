@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -87,6 +87,9 @@ export default function Shop() {
     });
     const [arrayItem,setArrayItem] = useState([]) // use get product from API
     const [listItems,setListItems] = useContext(ListItems) // use save item when click add
+    const [itemPerPage,setItemPerPage] = useState(12) // use to count the number of products per page 
+    const [currentPage,setCurrentPage] = useState(1) // current page
+    let numberPages = useRef();
     useEffect(function() {
         // call API
         console.log("Loading API!")
@@ -98,9 +101,9 @@ export default function Shop() {
                 e.images = "http://petsla-api.herokuapp.com" + e.images
             });
         console.log("Finish load API!")
-            while(arrayItem.length > 12) arrayItem.pop()
             setArrayItem(data)
         })
+        // 40 items
     },[]);
     function addItem(e) {
         notify()
@@ -124,6 +127,10 @@ export default function Shop() {
             return listItems
         })
     }
+    function setProductPerPage(e) {
+        setItemPerPage(e.target.value)
+        setCurrentPage(1)
+    }
     return (
     <div className="shop grid wide">
     <div className="content__list-items">
@@ -133,42 +140,75 @@ export default function Shop() {
         <div className="list-items__wrap">
             {
                 arrayItem.map((item,idx) => {
-                    return (
-                        <div className="col c-6 m-4 l-3 item" key = {idx} id = {item.id}>
-                            <a className="item__product" href="/">
-                                <div className="item__image" style={{backgroundImage:`url(${item.images})`}}/>
-                            </a>
-                            <div className="item__content">
-                                <div className="item__desc">
-                                    <a href="/">
-                                        <div className="item__desc-title">
-                                            {item.product_name}
+                    if(idx < itemPerPage*currentPage && idx >= itemPerPage*(currentPage-1)) {
+                        return (
+                            <div className="col c-6 m-4 l-3 item" key = {idx} id = {item.id}>
+                                <a className="item__product" href="/">
+                                    <div className="item__image" style={{backgroundImage:`url(${item.images})`}}/>
+                                </a>
+                                <div className="item__content">
+                                    <div className="item__desc">
+                                        <a href="/">
+                                            <div className="item__desc-title">
+                                                {item.product_name}
+                                            </div>
+                                        </a>
+                                        <div className="item__desc-price">
+                                            {item.price.toLocaleString('vi')}
                                         </div>
-                                    </a>
-                                    <div className="item__desc-price">
-                                        {item.price.toLocaleString('vi')}
                                     </div>
-                                </div>
-                                <div className="item__buy-cart-wrap">
-                                    <div className="item__buy">
-                                        <i className="item__buy-icon fa-solid fa-bag-shopping"></i>
-                                        <span>Buy now</span>
-                                    </div>
-                                    <div className="item__cart" onClick={addItem}>
-                                        <i className="item__cart-icon fa-solid fa-cart-plus"></i>
-                                        <span>Add to Cart</span>
+                                    <div className="item__buy-cart-wrap">
+                                        <div className="item__buy">
+                                            <i className="item__buy-icon fa-solid fa-bag-shopping"></i>
+                                            <span>Buy now</span>
+                                        </div>
+                                        <div className="item__cart" onClick={addItem}>
+                                            <i className="item__cart-icon fa-solid fa-cart-plus"></i>
+                                            <span>Add to Cart</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    )
+                        )
+                    }
                 })
             }
         </div>
     </div>
         <div className="pagination">
-            <div>1234</div>
-            <div>12</div>
+            <ul className="pagination-wrap">
+                <li className={`page-item ${(currentPage == 1)?("page-item--disable"):("")}`} style={{borderTopLeftRadius: ".2rem", borderBottomLeftRadius: ".2rem"}}>
+                    <i className="page-link fa-solid fa-angle-left"></i>
+                </li>
+                {
+                    function() {
+                        let pageItems = [];
+                        numberPages = arrayItem.length / itemPerPage;
+                        if(numberPages != parseInt(numberPages)) {
+                            numberPages = parseInt(numberPages) + 1;
+                        }
+                        for(let i = 1; i <= numberPages; i++) {
+                            pageItems.push(
+                                <li className={`page-item ${(currentPage == i)?("page-item--active"):("")}`} key = {i} onClick = {() => {setCurrentPage(i)}}>
+                                    <span className="page-link">{i}</span>
+                                </li>
+                            )
+                        }
+                        return pageItems
+                    }()
+                }
+                <li className={`page-item ${(currentPage == numberPages)?("page-item--disable"):("")}`} style={{borderTopRightRadius: ".2rem", borderBottomRightRadius: ".2rem"}}>
+                    <i className="page-link fa-solid fa-angle-right"></i>
+                </li>
+            </ul>
+            <div className="select-products-per-page">
+                <label className = "label form-lable" htmlFor = "item-per-page">Items/Page</label>
+                <select name = "item-per-page" id = "item-per-page" onChange={setProductPerPage}>
+                    <option>12</option>
+                    <option>24</option>
+                    <option>36</option>
+                </select>
+            </div>
         </div>
     </div>
     )

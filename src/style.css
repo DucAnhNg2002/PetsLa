@@ -6,7 +6,7 @@
 }
 
 .root {
-    background-color: rgb(246, 249, 252); 
+    background-color: rgb(246, 249, 252);
     color: black;
     transition: background-color .3s;
 }
