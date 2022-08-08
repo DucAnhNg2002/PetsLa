@@ -1,3 +1,31 @@
+/* Header Product */
+.header__product-wrap {
+    display: flex;
+    justify-content: right;
+    padding: .875rem 1.5rem;
+}
+.sort__product-wrap {
+    margin: .5rem 0 .5rem auto;
+    font-family: 'Lato', sans-serif;
+}
+.label-sort-product {
+    margin-right: .625rem;
+    font-size: 1.2rem;
+    font-family: inherit;
+}
+#sort-product {
+    line-height: 1.5;
+    font-size: 1.1rem;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: .375rem 2.25rem .375rem .75rem;
+    font-family: inherit;
+}
+.option-sort-product {
+
+}
+/* Header Product */
+
 /* List item */
 .list-items__wrap {
     width: 100%;
