@@ -143,6 +143,7 @@
     background-color: unset;
     color: #e69646;
     border: 0.5px solid #dee2e6;
+    cursor: pointer;
 }
 .page-item:hover {
     box-shadow: inset 6.25rem 6.25rem 6.25rem rgb(0 0 0 / 8%);
@@ -150,9 +151,11 @@
 .page-item--active {
     background-color: #e69646;
     color: #fafafa;
+    cursor: auto;
 }
 .page-item--disable {
     color: black;
+    cursor: auto;
 }
 .page-link {
     padding: .375rem .75rem;
