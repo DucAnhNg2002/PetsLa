@@ -141,6 +141,9 @@
     color: black;
     transition: color .2s;
 }
+.header__nav-item-link:hover {
+    color:#e69646;
+}
 /* Header Nav */
 
 /* Resposive */
