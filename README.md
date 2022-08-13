@@ -2,7 +2,8 @@
 *    Fetch API products
 *    Lựa chọn số items/page và select page
 *    Sắp xếp sản phẩm
-*    Menu cart: thêm, xóa, tăng, giảm sản phẩm vào gian hàng
+*    Chuyển trang xem chi tiết sản phẩm
+*    Menu cart: thêm, xóa, tăng, giảm sản phẩm vào giỏ hàng
 *    Responsive trên pc, latop, mobile
 *    ....
 

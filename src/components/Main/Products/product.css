@@ -1,0 +1,60 @@
+.product-container {
+    padding-top: 1.875rem;
+    padding-bottom: 1.875rem;
+}
+.product-wrap {
+    display: flex;
+}
+.product__img {
+    width: 100%;
+}
+
+/* Product InFo */
+.product__info-wrap {
+    margin-left: 1.875rem;
+}
+.product__title {
+    margin-top: .625rem;
+    margin-bottom: 0.5em;
+}
+.product__title h2 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.3rem;
+}
+.product__price {
+    color: #e69646;
+    font-weight: 600;
+    font-size: 1.3rem;
+    font-family: 'Ubuntu', sans-serif;
+}
+.product__btn-wrap {
+    display: flex;
+    align-items: center;
+}
+.product__btn {
+    margin: .625rem .625rem .625rem 0;
+    padding: .375rem .5rem;
+    border: 1px solid #e69646;
+    border-radius: 0.3rem;
+    background-color: unset;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    max-width: 8.75rem;
+    width: 8.75rem;
+    line-height: 1.5;
+    text-align: center;
+}
+.product__btn-buy {
+    color: #e69646;
+    transition: all .3s; 
+}
+.product__btn-buy:hover {
+    background-color: #e69646;
+    color: #fafafa;
+}
+.product__btn-add {
+    background-color: #e69646;
+    color: #fafafa;
+}
+/* Product InFo */

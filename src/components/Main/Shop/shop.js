@@ -7,6 +7,7 @@ import "./shop.css"
 import "./responsive-content.css"
 import { keyLocalStorage } from "../../../App";
 import { ListItems } from "../../../App";
+import { Link } from "react-router-dom";
 // const arrayItem = [
 //     {
 //         id: 1,
@@ -209,16 +210,16 @@ export default function Shop() {
                         if(idx < itemPerPage*currentPage && idx >= itemPerPage*(currentPage-1)) {
                             return (
                                 <div className="col c-6 m-4 l-3 item" key = {idx} id = {item.id}>
-                                    <a className="item__product" href="/">
+                                    <Link className="item__product" to = {`/product-${item.id}`}>
                                         <div className="item__image" style={{backgroundImage:`url(${item.images})`}}/>
-                                    </a>
+                                    </Link>
                                     <div className="item__content">
                                         <div className="item__desc">
-                                            <a href="/">
+                                            <Link to = {`/product-${item.id}`}>
                                                 <div className="item__desc-title">
                                                     {item.product_name}
                                                 </div>
-                                            </a>
+                                            </Link>
                                             <div className="item__desc-price">
                                                 {item.price.toLocaleString('vi')}
                                             </div>

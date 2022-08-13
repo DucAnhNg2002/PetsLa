@@ -6,6 +6,7 @@ import Header from "./components/Header/header";
 
 import Shop from "./components/Main/Shop/shop";
 import Home from "./components/Main/Home/home";
+import Product from "./components/Main/Products/product";
 
 export const ListItems = createContext()
 export const keyLocalStorage = "pesla-item"
@@ -44,6 +45,9 @@ export default function App() {
             <Routes>
                 <Route path = "/" element ={<Home/>}/>
                 <Route path = "/shop" element ={<Shop/>}/>
+                {/* <Route path = "/product-8" element = {<Product/>}/>
+                <Route path = "/product-1" element = {<Product/>}/> */}
+                <Route path = "/product-:id" element = {<Product/>}/>
             </Routes>
             <Footer/>
         </Router>
