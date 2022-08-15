@@ -1,4 +1,4 @@
-## *Sử dụng framework ReactJS*
+## *Sử dụng ReactJS*
 *    Fetch API products
 *    Lựa chọn số items/page và select page
 *    Sắp xếp sản phẩm
